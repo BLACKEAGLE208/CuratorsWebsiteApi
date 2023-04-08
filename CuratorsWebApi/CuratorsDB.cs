@@ -1,13 +1,14 @@
 ﻿using System.Reflection.Metadata;
 using System.Xml.Linq;
 using CuratorsWebApi.Models;
+using Microsoft.EntityFrameworkCore;
 //using System.Data.Entity;
 
 namespace SwaggerTest
 {
-    class CuratorsDB
+    /*class CuratorsDB
     {
-        /*static void ReadAndWrite()
+        static void ReadAndWrite()
         {
             using (CuratorsContext db = new CuratorsContext())
             {
@@ -26,8 +27,7 @@ namespace SwaggerTest
                     Console.WriteLine(c.LastName);
                 }
             }
-        }*/
-       
-    }
+        }
+    }*/
 }
 

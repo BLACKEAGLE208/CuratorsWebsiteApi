@@ -8,8 +8,8 @@ namespace CuratorsWebApi.Controllers
     [Route("/api/[controller]")]
     public class AdminController : Controller
     {
-        CuratorSiteContext db;
-        public AdminController(CuratorSiteContext context)
+        CuratorsContext db;
+        public AdminController(CuratorsContext context)
         {
             db = context;
             if (!db.Curators.Any())
@@ -27,7 +27,7 @@ namespace CuratorsWebApi.Controllers
             return db.Curators.ToList();
         }
 
-        /*[HttpGet("{id}")]
+        [HttpGet("{id}")]
         public Curator Get(int id)
         {
             Curator curator = db.Curators.FirstOrDefault(x => x.CuratorId == id);
@@ -68,6 +68,6 @@ namespace CuratorsWebApi.Controllers
                 db.SaveChanges();
             }
             return Ok(curator);
-        }*/
+        }
     }
 }

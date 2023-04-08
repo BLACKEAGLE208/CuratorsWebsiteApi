@@ -3,9 +3,9 @@
 
 namespace CuratorsWebApi.Models
 {
-    public class CuratorSiteContext : DbContext
+    public class CuratorsContext : DbContext
     {
-        public CuratorSiteContext(DbContextOptions<CuratorSiteContext> options) : base(options)
+        public CuratorsContext(DbContextOptions<CuratorsContext> options) : base(options)
         {
             Database.EnsureCreated();
         }

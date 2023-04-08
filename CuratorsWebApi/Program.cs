@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<CuratorSiteContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CuratorsSiteContext")));
+builder.Services.AddDbContext<CuratorsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CuratorsContext")));
 
 builder.Services.AddControllers();
 
