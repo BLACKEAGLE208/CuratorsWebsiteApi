@@ -12,7 +12,7 @@ namespace CuratorsWebApi.Models
 
         public DbSet<Curator> Curators { get; set; } = null!;
         public DbSet<Faculty> Faculties { get; set; } = null!;
-        public DbSet<FileClass> Files { get; set; } = null!;
+        public DbSet<Nfile> Nfile { get; set; } = null!;
 
     }
 }

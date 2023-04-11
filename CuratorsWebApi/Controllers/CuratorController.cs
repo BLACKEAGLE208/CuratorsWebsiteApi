@@ -34,7 +34,7 @@ namespace SwaggerTest.Controllers
             return Ok(curator);
         }
 
-
+        /*
         private int NextProductId => curators.Count() == 0 ? 1 : curators.Max(x => x.CuratorId) + 1;
         [HttpPost]
         public IActionResult Post(Curator curator) 
@@ -54,5 +54,6 @@ namespace SwaggerTest.Controllers
             curators.Remove(curators.SingleOrDefault(p => p.CuratorId == id));
             return Ok();
         }
+        */
     }
 }

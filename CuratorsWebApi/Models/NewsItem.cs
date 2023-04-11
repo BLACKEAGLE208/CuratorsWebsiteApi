@@ -2,10 +2,11 @@
 {
     public class NewsItem
     {
-        public int NewsItemId { get; set; }
-        public string Title { get; set; }
-        public string Annotation { get; set; }
-        public DateTime PublishDate { get; set;}
-        public string MainImageSource { get; set;}
+        public int newsItemId { get; set; }
+        public string title { get; set; }
+        public string titleTranslition { get; set; }
+        public string annotation { get; set; }
+        public DateTime publishDate { get; set;}
+        public string mainImageSource { get; set;}
     }
 }
