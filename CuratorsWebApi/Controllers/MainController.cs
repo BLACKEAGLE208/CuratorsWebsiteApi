@@ -12,7 +12,7 @@ namespace CuratorsWebApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetNameAndNUrl(int id)
         {
-            var faculty = faculties.SingleOrDefault(p => p.facultyId == id);
+            var faculty = faculties.SingleOrDefault(p => p.Id == id);
             ArrayList result = new ArrayList() { faculty.name, faculty.nameUrl };
 
             return Ok(result);

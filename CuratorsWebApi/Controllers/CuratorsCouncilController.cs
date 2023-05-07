@@ -2,24 +2,30 @@
 using CuratorsWebApi.Models;
 using System.Collections;
 
-namespace SwaggerTest.Controllers
+namespace CuratorsWebApi.Controllers
 {
     [Route("/api/[controller]")]
     public class CuratorsCouncilController : Controller
     {
-        private static List<Faculty> faculties = new List<Faculty>();
-        private static List<Curator> curators = new List<Curator>();
+        private CuratorsContext db;
+        public CuratorsCouncilController(CuratorsContext context)
+        {
+            db = context;
+        }
 
         [HttpGet]
-        public IEnumerable<Curator> GetAllCurators() => curators;
-
-        [HttpGet("{id}")]
-        public IActionResult GetNameAndNUrl(int id)
+        public IActionResult GetCurators()
         {
-            var faculty = faculties.SingleOrDefault(p => p.facultyId == id);
-            ArrayList result = new ArrayList() { faculty.name, faculty.nameUrl };
+            return Ok(db.Curators);
+        }
 
-            return Ok(result);
+
+        [HttpPost]
+        public async Task<IActionResult> PostCurator(Curator curator)
+        {
+            db.Curators.Add(curator);
+            await db.SaveChangesAsync();
+            return Ok(curator);
         }
     }
 }

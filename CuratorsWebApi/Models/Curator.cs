@@ -2,12 +2,12 @@
 {
     public class Curator
     {
-        public int CuratorId { get; set; }
-        public string? FirstName { get; set; }
-        public string? SecondName { get; set; }
-        public string? LastName { get; set; }
-        public string? AcademicTitle { get; set; }
-        public int? faculty_id { get; set; }
-        public byte[]? PhotoSource { get; set; }
+        public int curatorId { get; set; }
+        public string? firstName { get; set; }
+        public string? secondName { get; set; }
+        public string? lastName { get; set; }
+        public string? academicTitle { get; set; }
+        public int? facultyId { get; set; }
+        public string? photoSource { get; set; }
     }
 }

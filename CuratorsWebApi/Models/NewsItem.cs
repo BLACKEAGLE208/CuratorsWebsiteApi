@@ -8,5 +8,6 @@
         public string annotation { get; set; }
         public DateTime publishDate { get; set;}
         public string mainImageSource { get; set;}
+        public bool isMain { get; set;}
     }
 }

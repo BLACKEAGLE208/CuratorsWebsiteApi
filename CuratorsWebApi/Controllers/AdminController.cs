@@ -14,9 +14,9 @@ namespace CuratorsWebApi.Controllers
             db = context;
             if (!db.Curators.Any())
             {
-                db.Curators.Add(new Curator { FirstName = "iPhone X", LastName = "Apple" });
-                db.Curators.Add(new Curator { FirstName = "Galaxy S8", LastName = "Samsung" });
-                db.Curators.Add(new Curator { FirstName = "Pixel 2", LastName = "Google" });
+                db.Curators.Add(new Curator { firstName = "iPhone X", lastName = "Apple" });
+                db.Curators.Add(new Curator { firstName = "Galaxy S8", lastName = "Samsung" });
+                db.Curators.Add(new Curator { firstName = "Pixel 2", lastName = "Google" });
                 db.SaveChanges();
             }
         }
@@ -30,7 +30,7 @@ namespace CuratorsWebApi.Controllers
         [HttpGet("{id}")]
         public Curator Get(int id)
         {
-            Curator curator = db.Curators.FirstOrDefault(x => x.CuratorId == id);
+            Curator curator = db.Curators.FirstOrDefault(x => x.curatorId == id);
             return curator;
         }
 
@@ -61,7 +61,7 @@ namespace CuratorsWebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            Curator curator = db.Curators.FirstOrDefault(x => x.CuratorId == id);
+            Curator curator = db.Curators.FirstOrDefault(x => x.curatorId == id);
             if (curator != null)
             {
                 db.Curators.Remove(curator);

@@ -13,21 +13,21 @@ namespace CuratorsWebApi
                 context.Curators.AddRange(
                     new Curator
                     {
-                        FirstName = "iPhone X",
-                        SecondName = "Apple",
-                        faculty_id = 1
+                        firstName = "iPhone X",
+                        secondName = "Apple",
+                        facultyId = 1
                     },
                     new Curator
                     {
-                        FirstName = "Samsung Galaxy Edge",
-                        SecondName = "Samsung",
-                        faculty_id = 2
+                        firstName = "Samsung Galaxy Edge",
+                        secondName = "Samsung",
+                        facultyId = 2
                     },
                     new Curator
                     {
-                        FirstName = "Pixel 3",
-                        SecondName = "Google",
-                        faculty_id = 3
+                        firstName = "Pixel 3",
+                        secondName = "Google",
+                        facultyId = 3
                     }
                 );
                 context.SaveChanges();

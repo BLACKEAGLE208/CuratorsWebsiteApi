@@ -1,39 +1,63 @@
 ﻿using CuratorsWebApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CuratorsWebApi.Controllers
 {
     [Route("/api/[controller]")]
     public class FacultyController : Controller
     {
-        private static List<Faculty> faculties = new List<Faculty>();
+        private CuratorsContext db;
+        public FacultyController(CuratorsContext context)
+        {
+            db = context;
+        }
 
         [HttpGet]
-        public IEnumerable<Faculty> Get() => faculties;
-
-        private int NextFacultyId => faculties.Count() == 0 ? 1 : faculties.Max(x => x.facultyId) + 1;
-        [HttpPost]
-        public IActionResult Post(Faculty faculty)
+        public IActionResult GetAllFaculties()
         {
-            faculty.facultyId = NextFacultyId;
-            faculties.Add(faculty);
-            return CreatedAtAction(nameof(Get), new { id = faculty.facultyId }, faculty);
+            return Ok(db.Faculties);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostFaculty(Faculty faculty)
+        {
+            db.Faculties.Add(faculty);
+            await db.SaveChangesAsync();
+            return Ok(faculty);
+        }
+
+        [HttpGet("id")]
+        public IActionResult GetFacultyById(int id)
+        {
+            var faculty = db.Faculties.SingleOrDefault(p => p.Id == id);
+
+            return Ok(faculty);
         }
 
         [HttpGet("nameUrl")]
         public IActionResult GetFaculty(string nameurl)
         {
-            var faculty = faculties.SingleOrDefault(p => p.nameUrl == nameurl);
+            var faculty = db.Faculties.SingleOrDefault(p => p.nameUrl == nameurl);
 
             return Ok(faculty);
         }
 
-        [HttpPut("nameUrl")]
+        [HttpPut("id")]
         public IActionResult Put(Faculty faculty)
         {
-            faculties.Add(faculty);
-            
-            return Ok(faculty);
+            Faculty f = db.Faculties.SingleOrDefault(c => c.Id == faculty.Id);
+
+            f.name = faculty.name;
+            f.nameUrl = faculty.nameUrl;
+            f.description = faculty.description;
+            f.photoSource = faculty.photoSource;
+            f.websiteSource = faculty.websiteSource;
+
+            //db.Faculties.Update(faculty);
+            db.SaveChangesAsync();
+
+            return Ok(f);
         }
 
     }

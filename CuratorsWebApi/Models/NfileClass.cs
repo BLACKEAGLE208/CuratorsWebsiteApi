@@ -4,7 +4,6 @@
     {
         public int nfileId { get; set; }
         public string name { get; set; }
-        public string typeId { get; set; }
         public string description { get; set; }
         public string source { get; set; }
         public DateTime uploadDate { get; set; }
